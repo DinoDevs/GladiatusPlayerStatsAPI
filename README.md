@@ -39,6 +39,7 @@ http://yourserver.example/stats_api.php?country=gr&server=4&id=298498&profile&st
 ```
 
 Example Query - Response
+
 `http://yourserver.example/stats_api.php?country=gr&server=4&id=298498`
 ```json
 {
