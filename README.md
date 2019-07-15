@@ -32,10 +32,10 @@ Parameters:
 
 Example Queries:
 ```
-http://yourserver.example/stats_api.php?country=gr&server=4&name=DarkThanos&profile`
-http://yourserver.example/stats_api.php?country=gr&server=4&name=DarkThanos&statistics`
-http://yourserver.example/stats_api.php?country=gr&server=4&name=DarkThanos&achievements`
-http://yourserver.example/stats_api.php?country=gr&server=4&id=298498&profile&statistics`
+http://yourserver.example/stats_api.php?country=gr&server=4&name=DarkThanos&profile
+http://yourserver.example/stats_api.php?country=gr&server=4&name=DarkThanos&statistics
+http://yourserver.example/stats_api.php?country=gr&server=4&name=DarkThanos&achievements
+http://yourserver.example/stats_api.php?country=gr&server=4&id=298498&profile&statistics
 ```
 
 Example Query - Response
