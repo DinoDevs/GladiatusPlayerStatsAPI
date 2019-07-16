@@ -44,8 +44,7 @@
 
 		// Validate Server
 		function request_validate_server ($server) {
-			// This should be strictier with /^[1-9]+$/
-			if (!preg_match("/[1-9]+/i", $server)) {
+			if (!preg_match("/^[1-9][0-9]*$/i", $server)) {
 				return false;
 			}
 			return true;
@@ -53,7 +52,7 @@
 
 		// Validate Player Name
 		function request_validate_name ($name) {
-			if (!preg_match('/[^~#&\\[\\]\\{\\}\|\\/\'\\";:?,<>]{3,15}/', $name)) {
+			if (!preg_match('/^[^~#&\\[\\]\\{\\}\|\\/\'\\";:?,<>]{3,15}$/', $name)) {
 				return false;
 			}
 			return true;
@@ -61,8 +60,7 @@
 
 		// Validate Player ID
 		function request_validate_id ($id) {
-			// This should be strictier with /^[1-9]+$/
-			if (!preg_match("/[1-9]+/i", $id)) {
+			if (!preg_match("/^[1-9][0-9]*$/i", $id)) {
 				return false;
 			}
 			return true;
