@@ -65,6 +65,17 @@
 			}
 			return true;
 		}
+
+	/*
+		Help Functions
+	*/
+		// If server is in backup mode
+		function isSeverInBackUpMode ($html) {
+			if (strpos($html, '<h2 id="logoGladiatus_infobox"></h2>') !== false) {
+				return true;
+			}
+			return false;
+		}
 		
 	/*
 		Cache Functions
@@ -219,7 +230,15 @@
 				);
 			}
 			// Shrink string by deleting useless data
-			$html = substr($html, 45000, -2000);
+			$html = substr($html, 40000, -2000);
+
+			// Check if backup
+			if (isSeverInBackUpMode($html)) {
+				return array(
+					'error' => true, 'backup' => true,
+					'message' => 'Gladiatus server is in backup mode.'
+				);
+			}
 
 			// Match results patterns
 			$found = preg_match_all('/<a\\s+href="index\\.php\\?mod=player&p=(\\d+)[^>]+>\\s*([^<]+)<\\/a>(<a href="index\\.php\\?mod=guild&i=(\\d+)[^>]+>\\s*([^<]+)<\\/a>)*/', $html, $matches);
@@ -293,7 +312,15 @@
 				);
 			}
 			// Shrink string by deleting useless data
-			$html = substr($html, 46000, -2000);
+			$html = substr($html, 40000, -2000);
+
+			// Check if backup
+			if (isSeverInBackUpMode($html)) {
+				return array(
+					'error' => true, 'backup' => true,
+					'message' => 'Gladiatus server is in backup mode.'
+				);
+			}
 
 			// Create player object
 			$player = array(
@@ -534,7 +561,16 @@
 				);
 			}
 			// Shrink string by deleting useless data
-			$html = substr($html, 50000, -2000);
+			$htmlStartPos = strpos($html, '<div id="content">');
+			$html = substr($html, ($htmlStartPos ? $htmlStartPos : 30000), -2000);
+
+			// Check if backup
+			if (isSeverInBackUpMode($html)) {
+				return array(
+					'error' => true, 'backup' => true,
+					'message' => 'Gladiatus server is in backup mode.'
+				);
+			}
 
 			// Create player object
 			$data = array(
@@ -698,7 +734,15 @@
 				);
 			}
 			// Shrink string by deleting useless data
-			$html = substr($html, 50000, -2000);
+			$html = substr($html, 45000, -2000);
+
+			// Check if backup
+			if (isSeverInBackUpMode($html)) {
+				return array(
+					'error' => true, 'backup' => true,
+					'message' => 'Gladiatus server is in backup mode.'
+				);
+			}
 
 			// Create player object
 			$player = array(
@@ -797,7 +841,15 @@
 				);
 			}
 			// Shrink string by deleting useless data
-			$html = substr($html, 50000, -2000);
+			$html = substr($html, 45000, -2000);
+
+			// Check if backup
+			if (isSeverInBackUpMode($html)) {
+				return array(
+					'error' => true, 'backup' => true,
+					'message' => 'Gladiatus server is in backup mode.'
+				);
+			}
 
 			// Create player object
 			$player = array(
