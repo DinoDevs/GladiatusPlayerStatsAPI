@@ -1,6 +1,7 @@
 <?php
 /*
  * Gladiatus Battle Simulator by Gladiatus Crazy Team
+ * https://github.com/DinoDevs
  * https://www.facebook.com/GladiatusCrazyAddOn
  * Authors : GramThanos, GreatApo
  *
