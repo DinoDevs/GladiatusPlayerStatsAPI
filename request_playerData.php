@@ -2,7 +2,7 @@
 /*
  * Gladiatus Battle Simulator by Gladiatus Crazy Team
  * https://www.facebook.com/GladiatusCrazyAddOn
- * Authors : Gramthanos, Greatapo
+ * Authors : GramThanos, GreatApo
  *
  * Gladiatus Player Data Get Library
  */
@@ -76,7 +76,7 @@
 		// This needs more options
 		// like a global on/off option and a folder location option
 		function request_cache_load($country, $server) {
-			// Pointer to cashe variable
+			// Pointer to cache variable
 			global $request_cache;
 			// Load Cache File
 			$cache = @file_get_contents(dirname(__File__).'/request_playerData_cache/'.$country.'_'.$server.'.json');
@@ -84,7 +84,7 @@
 			if (!isset($request_cache[$country])) {
 				$request_cache[$country] = array();
 			}
-			// Check if cache exists
+			// Check if cache exist
 			if (!$cache) {
 				return false;
 			}
@@ -100,7 +100,7 @@
 		}
 		// Check the cache exist
 		function request_cache_check($country, $server) {
-			// Pointer to cashe variable
+			// Pointer to cache variable
 			global $request_cache;
 			// If cache not loaded 
 			if (!isset($request_cache[$country]) || !isset($request_cache[$country][$server])) {
@@ -115,14 +115,14 @@
 		}
 		// Check the cache if name exist
 		function request_cache_check_name($country, $server, $name) {
-			// Pointer to cashe variable
+			// Pointer to cache variable
 			global $request_cache;
 			// Check cache ready
 			if (!request_cache_check($country, $server)) {
 				return false;
 			}
 			$name = strtolower($name);
-			// Check if player exsist on cache
+			// Check if player exist on cache
 			if (isset($request_cache[$country][$server][$name])) {
 				// Return data
 				return $request_cache[$country][$server][$name];
@@ -131,17 +131,17 @@
 		}
 		// Check the cache if id exist
 		function request_cache_check_id($country, $server, $id) {
-			// Pointer to cashe variable
+			// Pointer to cache variable
 			global $request_cache;
 			// Check cache ready
 			if (!request_cache_check($country, $server)) {
 				return false;
 			}
-			// Check if player exsist on cache
+			// Check if player exist on cache
 			if (isset($request_cache[$country][$server]['id'][$id])) {
 				// Return data
 				$cache = $request_cache[$country][$server]['id'][$id];
-				// If data exsist too
+				// If data exist too
 				if (isset($request_cache[$country][$server][$cache['name']])) {
 					// Return data
 					return $request_cache[$country][$server][$cache['name']];
@@ -159,7 +159,7 @@
 		}
 		// Save
 		function request_cache_save($country, $server) {
-			// Pointer to cashe variable
+			// Pointer to cache variable
 			global $request_cache;
 			// Save Cache File
 			$cache = @file_put_contents(dirname(__File__).'/request_playerData_cache/'.$country.'_'.$server.'.json', json_encode($request_cache[$country][$server]));
@@ -170,7 +170,7 @@
 			
 		}
 		function request_cache_save_search($country, $server, $data) {
-			// Pointer to cashe variable
+			// Pointer to cache variable
 			global $request_cache;
 			// Check if exist
 			if (!isset($request_cache[$country][$server])) {
@@ -444,8 +444,8 @@
 			// Buffs
 			$player['profile']['buffs'] = array(
 				'minerva' => false,			// Can't detect
-				'mars' => false,				// Can't detect
-				'apollo' => false,				// Can't detect
+				'mars' => false,			// Can't detect
+				'apollo' => false,			// Can't detect
 				'honour_veteran' => false,
 				'honour_destroyer' => false	// Can't detect
 			);
@@ -1030,7 +1030,6 @@
 				}
 				check_row();
 			*/
-			// color:#DDDDDD>Αποστολή Θεραπεύστε τα μέλη της ομάδας σας</font></td></tr></table>')
 			switch ($country) {
 				// 31 servers
 				case 'ar':
