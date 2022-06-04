@@ -2,7 +2,7 @@
 /*
  * Gladiatus Battle Simulator by Gladiatus Crazy Team
  * https://www.facebook.com/GladiatusCrazyAddOn
- * Authors : Gramthanos, Greatapo
+ * Authors : GramThanos, GreatApo
  *
  * Gladiatus Player Stats API
  */
