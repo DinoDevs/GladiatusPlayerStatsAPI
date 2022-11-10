@@ -198,6 +198,25 @@
 				'id' => $data['id']
 			);
 		}
+		function request_cache_remove_by_id($country, $server, $id) {
+			// Pointer to cache variable
+			global $request_cache;
+			// Check if exist
+			if (!isset($request_cache[$country][$server])) {
+				$request_cache[$country][$server] = array();
+				if (!isset($request_cache[$country][$server]['id'])) {
+					$request_cache[$country][$server]['id'] = array();
+				}
+			}
+			// Check if id is cached
+			if (!isset($request_cache[$country][$server]['id'][$id])) {
+				$name = $request_cache[$country][$server]['id'][$id]['name'];
+				uset($request_cache[$country][$server]['id'][$id]);
+				if (!isset($request_cache[$country][$server][strtolower($name)])) {
+					uset($request_cache[$country][$server][strtolower($name)]);
+				}
+			}
+		}
 	
 	/*
 		Request Functions
@@ -321,6 +340,14 @@
 					'error' => true, 'backup' => true,
 					'message' => 'Gladiatus server is in backup mode.'
 				);
+			}
+
+			// Check if player was not found
+			$found = preg_match('/<article>[^<]*<h2 class="section-header">[^<]*<\/h2>[^<]*<section style="[^"]+" id="exitMessage">[^<]+<\/section>[^<]*<\/article>/', $html, $matches);
+			if ($found) {
+				request_cache_remove_by_id($country, $server, $id);
+				request_cache_save($country, $server);
+				return array('error' => true,'message' => 'Failed to load player data. Maybe this was a cache problem.');
 			}
 
 			// Create player object
