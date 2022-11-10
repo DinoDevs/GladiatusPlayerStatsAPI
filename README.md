@@ -96,6 +96,11 @@ Example Query - Response
 }
 ```
 
+Using the library directly from a console:
+```bash
+php ./stats_cli.php country=gr server=4 name=DarkThanos profile
+```
+
 ### PHP Library Include
 
 You may include the `request_playerData.php` file on your PHP code and call the library as you like.
